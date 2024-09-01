@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/-Java-Masters.iml" filepath="$PROJECT_DIR$/.idea/-Java-Masters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/-Java-Masters.iml" filepath="$PROJECT_DIR$/-Java-Masters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../GuestHouse/out/out.iml" filepath="$PROJECT_DIR$/../GuestHouse/out/out.iml" />
     </modules>
   </component>
 </project>

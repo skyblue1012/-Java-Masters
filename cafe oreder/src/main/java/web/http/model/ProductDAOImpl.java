@@ -141,10 +141,11 @@ public class ProductDAOImpl implements ProductDAO{
 			for(int id : orderid) {
 				ps2.setInt(1, id);
 				rs2=ps2.executeQuery();
+				LinkedHashMap<Product, Integer> plist = new LinkedHashMap<>();
 				while(rs2.next()) {
 					Product p = new Product(rs2.getString(2), null, null,0, null);
 					
-					LinkedHashMap<Product, Integer> plist = new LinkedHashMap<>();
+					
 					plist.put(p, rs2.getInt(3));
 					list.get(idx).setPlist(plist);
 				}
@@ -178,22 +179,23 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		return list;
 	}
-	/*
+	
+/*	
 public static void main(String[] args) {
 	ProductDAOImpl dao = ProductDAOImpl.getInstance();
 	
-	LinkedHashMap<Product, Integer> plist = new LinkedHashMap<Product, Integer>();
-	Product p1 = new Product("001", "아메리카노", "음료", 4000, "에스프레소에 물을 추가한 커피");
-	Product p2 = new Product("002", "카페라떼", "음료", 4500, "에스프레소에 스팀 밀크를 더한 커피");
-	Product p3 = new Product("003", "카푸치노", "음료", 4500, "에스프레소에 스팀 밀크와 거품을 더한 커피");
+//	LinkedHashMap<Product, Integer> plist = new LinkedHashMap<Product, Integer>();
+//	Product p1 = new Product("001", "아메리카노", "음료", 4000, "에스프레소에 물을 추가한 커피");
+//	Product p2 = new Product("002", "카페라떼", "음료", 4500, "에스프레소에 스팀 밀크를 더한 커피");
+//	Product p3 = new Product("003", "카푸치노", "음료", 4500, "에스프레소에 스팀 밀크와 거품을 더한 커피");
+//	
+//	plist.put(p1, 2);
+//	plist.put(p2, 2);
+//	plist.put(p3, 4);
+//	dao.order("id1", 30000,plist);
+//	dao.cancleOrder(12);
 	
-	plist.put(p1, 2);
-	plist.put(p2, 2);
-	plist.put(p3, 4);
-	dao.order("id1", 30000,plist);
-	//dao.cancleOrder(12);
-	
-	//dao.showOrder("id1");
+	dao.showOrder("id1");
 }
  */
 

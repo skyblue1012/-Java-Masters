@@ -45,10 +45,7 @@ public class OrderServlet extends HttpServlet {
 		list.put(request.getParameter("pnum3"), Integer.parseInt(request.getParameter("quantity3")) );
 		System.out.println(list);
 		ProductDAOImpl.getInstance().order(id, tp, list);
-		
-		
-		
-		
+		request.getRequestDispatcher("Show").forward(request, response);
 		
 	}
 

@@ -11,6 +11,9 @@
 	}
 </style>
 <script type="text/javascript">
+	function ok() {
+		alert("회원가입에 성공했습니다. 로그인 페이지로 이동합니다.")
+	}
 	$(()=>{
 		$('#check').on("click",function(){
 			event.preventDefault();
@@ -32,6 +35,35 @@
 				}
 			})//ajax
 		})//onclick
+		/*
+		$('#create').on("click",function(){
+			event.preventDefault();
+			let id= $('#id').val();
+			let pass= $('#pass').val();
+			let name= $('#name').val();
+			let mobile= $('#mobile').val();
+			
+			$.ajax({
+				url: "Create",
+				method: "post",
+				data:{id: id,pass: pass, name: name, mobile: mobile	},
+				success: function name(response) {
+					if(response=="ok"){
+						alert("회원가입에 성공했습니다.")
+					}else{
+						
+					}
+				}
+				,error: function name() {
+					alert("시스템 에러")
+				}
+				
+			})//ajax
+			
+			
+		})//onclick
+		*/
+		
 	});//ready	
 		
 	
@@ -44,7 +76,7 @@
 		Pass<input type="password" name="pass" required="required"><br><br>
 		Name<input type="text" name="name"><br><br>
 		Mobile<input type="text" name="mobile"><br><br>
-		<input type="submit" value="회원가입">
+		<input type="submit" value="회원가입" id="create" onclick=ok()>
 	
 	</form>
 </body>

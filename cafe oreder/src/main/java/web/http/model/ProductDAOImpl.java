@@ -48,10 +48,10 @@ public class ProductDAOImpl implements ProductDAO{
 	
 
 	@Override
-	public void order(String userId, int totalPrice, LinkedHashMap<Product, Integer> plist) {
+	public void order(String userId, int totalPrice, LinkedHashMap<String, Integer> plist) {
 		/*
 		 * order 테이블에 userId, totalPrice 입력,
-		 * order 테이블에서 userId와 totalPrice로 orderId 받아오기,
+		 * order 테이블에서 userId와 totalPrice로 orderId 받아오기, 추후에 id와 시간으로 수정 필요
 		 * order_product 테이블에 orderId, Map 입력하기
 		 */
 		String query1="INSERT INTO orderlist(User_id,orderTime,totalPrice) VALUES(?,now(),?) ";
@@ -77,9 +77,9 @@ public class ProductDAOImpl implements ProductDAO{
 			if(rs.next()) {
 				orderId = rs.getInt("orderId");
 			}
-			for(Map.Entry<Product, Integer> entry : plist.entrySet() ) {
+			for(Map.Entry<String, Integer> entry : plist.entrySet() ) {
 				ps3.setInt(1,orderId);
-				ps3.setString(2,entry.getKey().getpNum());
+				ps3.setString(2,entry.getKey());
 				ps3.setInt(3,entry.getValue());
 				ps3.executeUpdate();
 			}
@@ -134,7 +134,7 @@ public class ProductDAOImpl implements ProductDAO{
 			rs1=ps1.executeQuery();
 			while (rs1.next()) {
 				Order order = new Order(rs1.getInt(1), userId, rs1.getString(3), rs1.getInt(4), null);
-				System.out.println("order: "+order);
+				
 				list.add(order);
 				orderid.add(rs1.getInt(1));
 			}
@@ -143,18 +143,39 @@ public class ProductDAOImpl implements ProductDAO{
 				rs2=ps2.executeQuery();
 				while(rs2.next()) {
 					Product p = new Product(rs2.getString(2), null, null,0, null);
-					System.out.println("product: "+p);
+					
 					LinkedHashMap<Product, Integer> plist = new LinkedHashMap<>();
 					plist.put(p, rs2.getInt(3));
 					list.get(idx).setPlist(plist);
 				}
 				idx++;
 			}
-			System.out.println("list: "+list);
+			
 		}catch (SQLException e) {
 			System.out.println(e);
 		}
 	
+		return list;
+	}
+	public String getPrice(String pnum) {
+		String query="SELECT price FROM product WHERE pnum=?";
+		ResultSet rs = null;
+		String list = "";
+		try(
+			Connection conn = getConnection();
+			PreparedStatement ps = conn.prepareStatement(query);	
+				){
+			
+				ps.setString(1, pnum);
+				rs=ps.executeQuery();
+				if(rs.next()) {
+					list = String.valueOf(rs.getInt(1));
+				}
+			
+			
+		}catch (SQLException e) {
+			System.out.println(e);
+		}
 		return list;
 	}
 	/*

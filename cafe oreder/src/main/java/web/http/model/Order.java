@@ -7,7 +7,6 @@ public class Order {
 	private String userId;
 	private String orderTime;
 	private int totalPrice;
-	
 	private LinkedHashMap<Product,Integer> plist;
 	
 	public Order() {}

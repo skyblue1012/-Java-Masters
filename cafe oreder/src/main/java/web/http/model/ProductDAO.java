@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 public interface ProductDAO {
 	Connection getConnection() throws SQLException;
 	
-	void order(String userId, int totalPrice, LinkedHashMap<Product, Integer>plist );
+	void order(String userId, int totalPrice, LinkedHashMap<String, Integer>plist );
 	
 	
 	void cancleOrder(int orderId);

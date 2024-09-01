@@ -1,0 +1,15 @@
+create table recipe(
+indexNum int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+title varchar(30) not null,
+id varchar(15) not null,
+category varchar(15) not null,
+imgurl varchar(300) ,
+recipeDesc varchar(500)not null,
+foreign key(id,category) references user(id,category));
+
+create table user(
+id varchar(15) not null,
+password varchar(25) not null,
+username varchar(20) not null,
+category varchar(15) not null,
+primary key(id,category));

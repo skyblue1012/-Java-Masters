@@ -1,7 +1,6 @@
 public class User {
-    public String id;
-    public String password;
-    public String email;
-    public String name;
-
+    private String Id;
+    private String password;
+    private String userName;
+    private String category;
 }

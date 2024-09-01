@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	$(()=>{
+		$('#check').on("click",function(){
+			event.preventDefault();
+			let id = $('#id').val();
+			
+			$.ajax({
+				url:'CheckId',
+				method: "post",
+				data: {id: id},
+				success: function name(response) {
+					if(response==="true"){
+						alert("사용 불가능한 id입니다.");
+					}else{
+						alert("사용 가능한 id입니다.");
+					}
+				},
+				error: function name() {
+					alert("서버 오류가 발생했습니다.")
+				}
+			})//ajax
+		})//onclick
+	});//ready	
+		
+	
+	
+</script>
+</head>
+<body>
+	<form action="Create" method="post" id="frm">
+		ID<input type="text" name="id" id="id" required="required"> <button id="check">ID 조회</button> <br><br>
+		Pass<input type="password" name="pass" required="required"><br><br>
+		Name<input type="text" name="name"><br><br>
+		Mobile<input type="text" name="mobile"><br><br>
+		<input type="submit" value="회원가입">
+	
+	</form>
+</body>
+</html>

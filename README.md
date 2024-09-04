@@ -85,6 +85,11 @@ INSERT INTO `user` VALUES("jinam", "1234", "곰사모", "서울시");
 7. forward(path) 방식으로 네비게이션
 8. 바인딩한 데이터를 출력
 
+# 4. 실행 영상
+https://github.com/user-attachments/assets/b57a0160-052d-470e-a5f6-9b7693230678
+
+
+
 
 
 

@@ -9,5 +9,6 @@
 - 게시판 등록시 img 파일 경로를 넣었는데 상세보기하면 image가 나타나지 않음.
 
 🐶시연영상
-https://github.com/user-attachments/assets/2decc03b-4539-4f3f-9caa-cf47253ee7ca
+
+https://github.com/user-attachments/assets/a12255be-c89d-4022-9b4e-883fb43c4326
 

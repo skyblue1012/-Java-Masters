@@ -22,14 +22,15 @@ Product VO<br>
 ![Product VO](https://github.com/user-attachments/assets/4e4ea2d1-43ec-4535-a60d-715eae518bac)<br>
 
 어려웠던 부분 : idCheck 기능을 ajax를 통해 연결하는 것.<br>
-개선할 부분: MVC 패턴의 개발 방식을 Factory Method 방식으로 바꾸는 것, <br>
-Order 로직에서 Order_Product 테이블에 값을 넣기 전에 orderid 값을<Br>
-방금 생성한 Order table에서 받아올 때 
-String query2="SELECT orderId FROM orderlist WHERE User_id = ? AND totalPrice=?";
-이렇게 유저 아이디와 주문 총 금액으로 id를 특정하는데 ,
-이것을 자동생성되는 주문시간을 받아와서 년월일 시분 단위로 비교해서 orderid를 가져오도록 바꿀 필요가 있다.
-* 초까지 일치하게 설정할 경우 처리과정상에서 소요되는 시간으로 인해 orderid 값을 가져오지 못 할 것 같다.
-
+개선할 부분: <br>
+1. MVC 패턴의 개발 방식을 Factory Method 방식으로 바꾸는 것, <br>
+2. Order 로직에서 Order_Product 테이블에 값을 넣기 전에 orderid 값을<Br>
+방금 생성한 Order table에서 받아올 때 <Br>
+String query2="SELECT orderId FROM orderlist WHERE User_id = ? AND totalPrice=?";<Br>
+이렇게 유저 아이디와 주문 총 금액으로 id를 특정하는데 ,<Br>
+이것을 자동생성되는 주문시간을 받아와서 년월일 시분 단위로 비교해서 orderid를 가져오도록 바꿀 필요가 있다.<Br>
+* 초까지 일치하게 설정할 경우 처리과정상에서 소요되는 시간으로 인해 orderid 값을 가져오지 못 할 것 같다.<Br>
+3.3종류 제한된 주문 종류 수를 select에서 checkbox 타입으로 바꿔서 선택 가능한 종류 수를 늘릴 필요가 있다.
 
 
 
